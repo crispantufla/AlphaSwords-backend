@@ -1,0 +1,8 @@
+node_modules
+*.log
+*~
+*.env
+*.lock
+.idea
+package-log.json
+credenciales.js
