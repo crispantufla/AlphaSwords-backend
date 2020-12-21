@@ -55,10 +55,20 @@ const userRouter = () => {
     })
   });
 
-
   router.use('/getcategorys', async (req, res) => {
     return models.category.find(req.query)
       .populate('books')
+    .then(book => {
+      res.send(book);
+    }).catch((err) => {
+      res.status(500).send({error: err})
+    })
+  });
+
+  router.use('/getcomments/:id', async (req, res) => {
+    let id = req.params.id
+    return models.comments.find({'book': id})
+      .populate('user', 'nickname')
     .then(book => {
       res.send(book);
     }).catch((err) => {
