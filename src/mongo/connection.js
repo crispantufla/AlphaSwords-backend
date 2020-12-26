@@ -7,7 +7,6 @@ const databaseUser = process.env.DATABASE_USER;
 const databasePassword = process.env.DATABASE_PASSWORD;
 const databaseURL = process.env.DATABASE_URL;
 
-
 if (databaseURL) {
 	mongoose.connect(databaseURL, { useNewUrlParser: true });
 } else {
@@ -17,4 +16,3 @@ if (databaseURL) {
 		mongoose.connect(`mongodb://${databaseHost}:${databasePort}/${databaseName}?authSource=admin`, {useNewUrlParser: true, useUnifiedTopology: true});
 	}
 }
-

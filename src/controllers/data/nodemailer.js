@@ -10,7 +10,7 @@ const sendMail = (code, email) => {
     }
   });
 
-  let info = transporter.sendMail({
+  const info = transporter.sendMail({
     from: 'audiblenot@gmail.com', 
     to: email, 
     subject: "Codigo de verificacion", 

@@ -1,7 +1,3 @@
-const mongoose = require('mongoose');
-const { category } = require('./index');
-const db = require("./index");
-
 const initCategory = (Category) => {
 
     const data = [

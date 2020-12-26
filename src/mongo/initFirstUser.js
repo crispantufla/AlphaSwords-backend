@@ -1,4 +1,3 @@
-const passwordHash = require('password-hash');
 const {adminEmail, adminPassword} = require("../config");
 
 const initFirstUser = (User) => {

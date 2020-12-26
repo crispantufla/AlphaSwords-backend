@@ -5,16 +5,16 @@ const {validationResult} = require('express-validator');
 const validationEntityMiddleware = (req, res, next) => {
   if (models[req.params.entity] === undefined) {
     res.status(400).send({ message: "The entity " + req.params.entity + " is not known"});
-  } else {
-    return next();
-  }
+  } 
+
+  next();
 }
 const validationEntityIdMiddleware = (req, res, next) => {
   if (req.params.id !== undefined && req.params.id.length !== 24) {
     res.status(400).send({ message: "The id should have 24 hex chars"});
-  } else {
-    return next();
-  }
+  } 
+
+  next();
 }
 
 const validationChecks = (req, res, next) => {
@@ -24,7 +24,7 @@ const validationChecks = (req, res, next) => {
       return res.status(500).json(error);
     }
 
-    next();
+  next();
 }
 
 module.exports = {
