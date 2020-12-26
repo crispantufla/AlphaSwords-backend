@@ -40,10 +40,9 @@ const configSecurity = (app) => {
     }
   });
 
-
   app.post('/register',
     [
-      check('email').isEmail().withMessage('Introduzca una dirección de correo electrónico válida'),
+      check('email').normalizeEmail().isEmail().withMessage('Introduzca una dirección de correo electrónico válida'),
       check('nickname').not().isEmpty().isLength({ min: 6 }).withMessage('Tu Usuario debe contener almenos 6 caracteres'),
       check('password').not().isEmpty().isLength({ min: 6 }).withMessage('Tu contraseña debe contener almenos 6 caracteres')
     ], validationChecks, async (req, res) => {

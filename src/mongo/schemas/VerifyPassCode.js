@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
   email: String,
-  verifypassCode: String,
+  verifyPassCode: String,
   createdAt: { type: Date, expires: '10m', default: Date.now }
 });
 
