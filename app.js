@@ -1,4 +1,4 @@
-const {configSecurity} = require("./src/controllers/jwt");
+const {configSecurity, loginRouter} = require("./src/controllers/jwt");
 require('dotenv').config();
 
 const express = require('express');
@@ -9,6 +9,7 @@ const buildDataRouter = require('./src/controllers/data').buildRouter;
 const userRouter = require('./src/controllers/userRouter').userRouter;
 const trackRouter = require('./src/controllers/trackRouter').trackRouter;
 const bookDataRouter = require('./src/controllers/bookDataRouter').bookDataRouter;
+
 
 const app = express();
 const port = 3001;
@@ -24,10 +25,11 @@ app.use(morgan('dev'));
 
 configSecurity(app);
 
+app.post('/login', loginRouter);
 app.use('/data', buildDataRouter());
 app.use('/user', userRouter());
 app.use('/track', trackRouter());
-app.use('/book', bookDataRouter())
+app.use('/book', bookDataRouter());
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)

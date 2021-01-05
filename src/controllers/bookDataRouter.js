@@ -13,8 +13,8 @@ const bookDataRouter = () => {
             })
     });
 
-    router.use('/getcategorys', async (req, res) => {
-        return models.category.find(req.query).populate('books')
+    router.use('/getcategorys/:id', async (req, res) => {
+        return models.category.findById(req.params.id).populate('books')
             .then(result => {
                 res.status(200).send(result);
             }).catch(err => {
