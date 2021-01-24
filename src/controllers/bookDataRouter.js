@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const { book } = require('../mongo');
 const models = require('../mongo');
 
 const bookDataRouter = () => {
@@ -13,8 +14,9 @@ const bookDataRouter = () => {
             })
     });
 
-    router.use('/getcategorys/:id', async (req, res) => {
-        return models.category.findById(req.params.id).populate('books')
+    router.use('/getcategorys/:id/:page', async (req, res) => {
+        let skip = (req.params.page -1) * 5;
+        return models.category.findById(req.params.id).populate({path: 'books', options: { skip: skip, limit: 5}})
             .then(result => {
                 res.status(200).send(result);
             }).catch(err => {
@@ -40,6 +42,15 @@ const bookDataRouter = () => {
             })
     });
     
+    router.use('/searchbook/:namesearch/', async (req, res) => {
+        const namesearch = req.params.namesearch;
+        console.log(namesearch)
+        return book.find({ 'title': namesearch })
+            .then(result => {
+                res.status(200).send(result)
+            })
+    });
+
     return router;
 };
 

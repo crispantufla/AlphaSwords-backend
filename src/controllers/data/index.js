@@ -26,7 +26,9 @@ const buildRouter = () => {
   });
   // Search
   router.get('/:entity', (req, res) => {
+    console.log("hola")
     const Entity = models[req.params.entity];
+    console.log(Entity)
     return Entity.find(req.query)
       .then((results) => {
         res.send(results);

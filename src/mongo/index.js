@@ -4,7 +4,7 @@ const VerifyPassCode = require('./schemas/VerifyPassCode');
 const Book = require('./schemas/Book');
 const Category = require('./schemas/Category');
 const Comments = require('./schemas/Comments');
-const Favorite = require('./schemas/Favorite')
+const Favorite = require('./schemas/Favorite');
 const {initFirstUser} = require('./initFirstUser');
 const {initCategory} = require('./initFirstCategory');
 

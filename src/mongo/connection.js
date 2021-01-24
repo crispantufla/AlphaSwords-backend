@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
-const databaseHost = process.env.DATABASE_HOST || 'localhost';
+const databaseHost = process.env.DATABASE_HOST || '127.0.0.1';
 const databasePort = process.env.DATABASE_PORT || '27017';
 const databaseName = process.env.DATABASE_NAME || 'app';
 const databaseUser = process.env.DATABASE_USER;
