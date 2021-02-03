@@ -48,8 +48,7 @@ const bookDataRouter = () => {
     
     router.use('/searchbook/:namesearch/', async (req, res) => {
         const namesearch = req.params.namesearch;
-        console.log(namesearch);
-        return book.find({ name: {namesearch }})
+        return book.find({ $text: {$search: namesearch} })
             .then(book => {
                 res.status(200).send(book)
             })
