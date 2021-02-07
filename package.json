@@ -23,7 +23,6 @@
     "express-validator": "^6.6.1",
     "gridfs-stream": "^1.1.1",
     "mongoose": "^5.10.9",
-    "mongoose-text-search": "0.0.2",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "nodemailer": "^6.4.15",

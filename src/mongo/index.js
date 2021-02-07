@@ -5,6 +5,7 @@ const Book = require('./schemas/Book');
 const Category = require('./schemas/Category');
 const Comments = require('./schemas/Comments');
 const Favorite = require('./schemas/Favorite');
+const Score = require('./schemas/Score');
 const {initFirstUser} = require('./initFirstUser');
 const {initCategory} = require('./initFirstCategory');
 
@@ -17,5 +18,6 @@ module.exports = {
   book: Book,
   category: Category,
   comments: Comments,
-  favorite: Favorite
+  favorite: Favorite,
+  score: Score
 }

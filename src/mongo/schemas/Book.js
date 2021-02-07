@@ -10,7 +10,7 @@ const schema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   file: { type: mongoose.Schema.Types.ObjectId, ref: 'fs.files' },
   cover: String,
-  synopsis: String
+  synopsis: String,
 });
 
 const Book = mongoose.model('Book', schema);
