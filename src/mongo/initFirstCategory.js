@@ -2,13 +2,13 @@ const initCategory = (Category) => {
 
     const data = [
         {
-            name: "Misterior y Suspense"
+            name: "Misterio y Suspense"
         },
         {
             name: "Ciencia Ficción"
         },
         {
-            name: "Comedia"
+            name: "Humor y sátira"
         },
         {
             name: "Terror"
@@ -18,6 +18,12 @@ const initCategory = (Category) => {
         },
         {
             name: "Romance"
+        },
+        {
+            name: "Infantiles"
+        },
+        {
+            name: "Salud y bienestar"
         },
     ];
 

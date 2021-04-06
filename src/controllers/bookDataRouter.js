@@ -76,30 +76,6 @@ const bookDataRouter = () => {
         return res.status(200).send({ userScore: 3 });
     });
 
-    router.use('/savescore2', async (req, res) => {
-        return models.score.find({ user: req.body.user, book: req.body.book }).then(scores => {
-        
-        if (scores.length == 0) {
-            const score = new models.score(req.body);
-            return score.save().then(() => {
-                res.status(200);
-            }).catch(err => {
-                res.status(500).send({ error: err });
-            })
-        }
-
-        return score.update(
-            { user: req.body.user, book: req.body.book },
-            { $set: { userScore: req.body.userScore } },
-            { 'new': true }
-            ).then(newScore => {
-                res.status(200).send({userScore: newScore.userScore});
-            }).catch(err => {
-                res.status(500).send({ error: err });
-            })
-        })
-    });
-
     router.use('/savescore', async (req, res) => {
         const scores = await models.score.find({ user: req.body.user, book: req.body.book });
         
@@ -116,11 +92,11 @@ const bookDataRouter = () => {
             { user: req.body.user, book: req.body.book },
             { $set: { userScore: req.body.userScore } },
             { 'new': true }
-            ).then(newScore => {
-                res.status(200).send({userScore: newScore.userScore});
-            }).catch(err => {
-                res.status(500).send({ error: err });
-            })
+        ).then(newScore => {
+            res.status(200).send({userScore: newScore.userScore});
+        }).catch(err => {
+            res.status(500).send({ error: err });
+        })
     });
 
     return router;
